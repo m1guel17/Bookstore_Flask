@@ -16,6 +16,7 @@ bookstore/
 │   ├── index.html
 │   ├── search_results.html
 │   ├── order.html
+│   ├── enter_collection.html
 ├── static/
 │   ├── style.css
 ├── config.py
