@@ -1,65 +1,63 @@
-/* Basic reset for margins and paddings */
-body, h1, form, ul, li {
+body, html {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
+header {
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.search-bar input[type="text"] {
+    padding: 5px;
+}
+
+.search-bar button {
+    padding: 5px 10px;
+    background-color: blue;
+    color: white;
+    border: none;
+}
+
+.book-container {
+    display: flex;
+    overflow-x: auto;
     padding: 20px;
 }
 
-h1 {
-    color: #333;
+.book {
+    margin: 10px;
+    width: 160px;
+    text-align: center;
 }
 
-/* Form styling */
-form {
-    margin: 20px 0;
+.book img {
+    width: 100%;
+    height: auto;
 }
 
-input[type="text"] {
-    padding: 8px;
-    width: 300px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.details h3 {
+    font-size: 1em;
+    margin: 5px 0;
 }
 
-button {
-    padding: 10px 20px;
-    background-color: #5CDB95;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #379683;
-}
-
-/* List styling */
-ul {
-    list-style-type: none;
-}
-
-li {
-    background-color: #fff;
-    padding: 10px;
-    border: 1px solid #ddd;
-    margin-top: 5px;
-}
-
-li a {
-    color: #333;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-li a:hover {
-    text-decoration: underline;
+.details p {
+    font-size: 0.8em;
+    margin: 5px 0;
 }

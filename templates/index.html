@@ -6,17 +6,45 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Welcome to the Bookstore</h1>
-    <form action="{{ url_for('search') }}" method="post">
-        <input type="text" name="title" placeholder="Search for a book">
-        <button type="submit">Search</button>
-    </form>
-    <ul>
-        {% for book in books %}
-        <li>{{ book.title }} by {{ book.author }} - ${{ book.price }}
-            <a href="{{ url_for('order', book_id=book.id) }}">Order</a>
-        </li>
-        {% endfor %}
-    </ul>
+    <header>
+        <h1>PeruBookstore.com</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Write title, author, keyword" />
+            <button type="submit">Search</button>
+        </div>
+    </header>
+
+    <section class="new-releases">
+        <h2>New Releases in Printed Books</h2>
+        <div class="book-container">
+            <!-- Books will be dynamically inserted here -->
+            {% for book in books %}
+            <div class="book">
+                <img src="{{ book.image_url }}" alt="{{ book.title }}">
+                <div class="details">
+                    <h3>{{ book.title }}</h3>
+                    <p>{{ book.author }}</p>
+                    <p>${{ book.price }}</p>
+                    <a href="#">See More</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="digital-books">
+        <h2>Novelties in Digital Books</h2>
+        <div class="book-container">
+            <!-- Similar loop for digital books -->
+        </div>
+    </section>
 </body>
 </html>
