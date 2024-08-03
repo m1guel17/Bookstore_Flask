@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+.book-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.book-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.cover-image img {
+    width: 100%;
+    height: auto;
+}
+
+.book-info h2 {
+    color: #000;
+    margin: 10px 0 5px;
+}
+
+.book-info p {
+    color: #555;
+    margin: 5px 0;
+}
+
+.order-link, .back-link {
+    display: inline-block;
+    padding: 8px 16px;
+    margin-top: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.order-link:hover, .back-link:hover {
+    background-color: #0056b3;
+}
+.cover-image img {
+    height: 150px;  /* Fixed height for all book cover images */
+    width: 100%;    /* Ensures the image covers the full width of its container */
+    object-fit: cover;  /* Ensures the image covers the space without distortion */
+}

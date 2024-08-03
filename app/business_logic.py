@@ -17,8 +17,8 @@ def place_order(book_id, quantity):
         return True
     return False
 
-def add_book(title, author, price, stock):
-    new_book = Book(title=title, author=author, price=price, stock=stock)
+def add_book(title, author, price, stock, image):
+    new_book = Book(title=title, author=author, price=price, stock=stock, image = image)
     try:
         db.session.add(new_book)
         db.session.commit()

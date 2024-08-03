@@ -1,6 +1,9 @@
 from flask import render_template, request, redirect, url_for, flash
-from . import create_app
+from werkzeug.utils import secure_filename
+import os
 from .business_logic import get_books, search_books, place_order, add_book
+
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 def init_app(app):
     @app.route('/')
@@ -16,7 +19,15 @@ def init_app(app):
             price = float(request.form['price'])
             stock = int(request.form['stock'])
             
-            if add_book(title, author, price, stock):
+            if 'image' in request.files:
+                file = request.files['image']
+                if file and allowed_file(file.filename):
+                    filename = secure_filename(file.filename)
+                    ext = filename.split(".")[-1]
+                    name_img = title + "." + ext
+                    file.save(os.path.join('static/images', name_img))
+                    
+            if add_book(title, author, price, stock, name_img):
                 flash('Book added successfully!')
                 return redirect(url_for('index'))
             else:
@@ -24,11 +35,14 @@ def init_app(app):
     
         return render_template('enter_collection.html')
     
+    def allowed_file(filename):
+        return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+    
     @app.route('/search', methods=['POST'])
     def search():
         title = request.form.get('title')
         results = search_books(title)
-        return render_template('search_results.html', results=results)
+        return render_template('search_results.html', results=results, query=title)
 
     @app.route('/order/<int:book_id>', methods=['GET', 'POST'])
     def order(book_id):

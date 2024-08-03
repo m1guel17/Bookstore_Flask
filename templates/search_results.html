@@ -3,17 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Search Results</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/search.css') }}">
 </head>
 <body>
-    <h1>Search Results</h1>
-    <ul>
+    <h1>Search Results for '{{query}}'</h1>
+    <div class="book-list">
         {% for book in results %}
-        <li>{{ book.title }} by {{ book.author }} - ${{ book.price }}
-            <a href="{{ url_for('order', book_id=book.id) }}">Order</a>
-        </li>
+        <div class="book-item">
+            <div class="cover-image">
+                <img src="{{ url_for('static', filename='images/' + book.image) }}" alt="Cover image">
+            </div>
+            <div class="book-info">
+                <h2>{{ book.title }}</h2>
+                <p>by {{ book.author }}</p>
+                <p>Price: ${{ book.price }}</p>
+                <a href="{{ url_for('order', book_id=book.id) }}" class="order-link">Order</a>
+            </div>
+        </div>
         {% endfor %}
-    </ul>
-    <a href="{{ url_for('index') }}">Back to Home</a>
+    </div>
+    <a href="{{ url_for('index') }}" class="back-link">Back to Home</a>
 </body>
 </html>

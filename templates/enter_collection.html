@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Enter New Book</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
 </head>
 <body>
     <h1>Enter New Book</h1>
-    <form action="{{ url_for('enter_collection') }}" method="post">
+    <form action="{{ url_for('enter_collection') }}" method="post" enctype="multipart/form-data">
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" required><br>
 
@@ -19,6 +19,9 @@
 
         <label for="stock">Stock:</label>
         <input type="number" id="stock" name="stock" required><br>
+
+        <label for="image">Book Cover Image:</label>
+        <input type="file" id="image" name="image" accept="image/*"><br>
 
         <button type="submit">Add Book</button>
     </form>

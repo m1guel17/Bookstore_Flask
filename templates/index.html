@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Bookstore</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
 </head>
 <body>
     <header>
@@ -16,10 +16,10 @@
                 <li><a href="#">Contact</a></li>
             </ul>
         </nav>
-        <div class="search-bar">
-            <input type="text" placeholder="Write title, author, keyword" />
+        <form action="{{ url_for('search') }}" method="post">
+            <input type="text" name="title" placeholder="Search for a book">
             <button type="submit">Search</button>
-        </div>
+        </form>
     </header>
 
     <section class="new-releases">
@@ -28,7 +28,7 @@
             <!-- Books will be dynamically inserted here -->
             {% for book in books %}
             <div class="book">
-                <img src="{{ book.image_url }}" alt="{{ book.title }}">
+                <img src="{{ url_for('static', filename='images/' + book.image) }}">
                 <div class="details">
                     <h3>{{ book.title }}</h3>
                     <p>{{ book.author }}</p>
