@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bookstore</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Welcome to the Bookstore</h1>
+    <form action="{{ url_for('search') }}" method="post">
+        <input type="text" name="title" placeholder="Search for a book">
+        <button type="submit">Search</button>
+    </form>
+    <ul>
+        {% for book in books %}
+        <li>{{ book.title }} by {{ book.author }} - ${{ book.price }}
+            <a href="{{ url_for('order', book_id=book.id) }}">Order</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
