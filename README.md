@@ -38,7 +38,7 @@ bookstore/
   - **`business_logic.py`**: Contains the business rules and application logic, ensuring that all operations are performed as expected.
   - **`data_access.py`**: Responsible for data management and interactions with the database. This layer abstracts the database operations from the rest of the application.
 
-- **instance/**: This directory contains instance-specific files, such as the SQLite database. ~This folder and its content will be created when you deploy this application~
+- **instance/**: This directory contains instance-specific files, such as the SQLite database. _This folder and its content will be created when you deploy this application_
   - **`bookstore.db`**: The SQLite database file for storing book information.
 
 - **templates/**: This folder contains HTML templates used to render the web pages. Each HTML file corresponds to a different page of the web application.
