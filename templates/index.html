@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Bookstore</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
 </head>
 <body>
     <header>
-        <h1>PeruBookstore.com</h1>
+        <h1>Flask_BookStore.com</h1>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Categories</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#">Item1</a></li>
+                <li><a href="#">Item2</a></li>
+                <li><a href="#">Item3</a></li>
+                <li><a href="#">Item4</a></li>
             </ul>
         </nav>
         <form action="{{ url_for('search') }}" method="post">
@@ -21,9 +21,8 @@
             <button type="submit">Search</button>
         </form>
     </header>
-
     <section class="new-releases">
-        <h2>New Releases in Printed Books</h2>
+        <h2>Books saved in Database</h2>
         <div class="book-container">
             <!-- Books will be dynamically inserted here -->
             {% for book in books %}
@@ -33,18 +32,16 @@
                     <h3>{{ book.title }}</h3>
                     <p>{{ book.author }}</p>
                     <p>${{ book.price }}</p>
-                    <a href="#">See More</a>
+                    <a href="#">Book Link</a>
                 </div>
             </div>
             {% endfor %}
         </div>
     </section>
-
-    <section class="digital-books">
-        <h2>Novelties in Digital Books</h2>
-        <div class="book-container">
-            <!-- Similar loop for digital books -->
-        </div>
-    </section>
+    <footer>
+        <p>Message at the end in footer</p>
+        <div id="clock" class="clock"></div>
+    </footer>
+    <script src="{{ url_for('static', filename='scripts/index.js') }}"></script>
 </body>
 </html>

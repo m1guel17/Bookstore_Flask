@@ -1,0 +1,127 @@
+body, html {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding-bottom: 50px; /* Add padding to the bottom of the body to ensure content isn't covered by the footer */
+}
+
+header {
+    background-color: #003366;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+form {
+    display: flex;
+    align-items: center;
+}
+
+form input[type="text"] {
+    padding: 8px;
+    width: 200px; /* Adjust width as per your layout */
+    border: none;
+    border-radius: 5px 0 0 5px; /* Rounded corners on the left side */
+}
+
+form button {
+    padding: 8px 16px;
+    background-color: #0066cc; /* Slightly lighter blue for the button */
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0; /* Rounded corners on the right side */
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #bebebe; /* Darker shade for hover effect */
+}
+
+.book-container {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px;
+}
+
+.book {
+    margin: 10px;
+    width: 160px;
+    text-align: center;
+}
+
+.book img {
+    height: 150px;          /* Fixed height */
+    width: 100px;           /* Fixed width */
+    object-fit: cover;      /* Ensures the image covers the designated area without distortion */
+    border-radius: 5px;
+}
+
+.book a{
+    text-decoration: none;    
+}
+
+.details h3 {
+    font-size: 1em;
+    margin: 5px 0;
+}
+
+.details p {
+    font-size: 0.8em;
+    margin: 5px 0;
+}
+
+.new-releases h2{
+    margin-left: 50px;
+    color: #003366;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #003366;  /* Matching the header background color */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer p {
+    flex-grow: 1; /* Makes the paragraph expand to fill the space, centering the text */
+    margin: 0; /* Removes default margin */
+    text-align: center;
+}
+
+.clock {
+    color: white;
+    margin-right: 20px; /* Right margin for spacing */
+    font-size: 16px;
+}
