@@ -3,7 +3,7 @@
 This is a simple bookstore web application built using Flask, following a layered architecture design pattern. The application is structured to separate concerns and improve maintainability by organizing code into different layers, such as presentation, business logic, and data access.
 
 <p align="center">
-<img src="https://github.com/user-attachments/assets/c6e89c40-8455-46d6-ae21-a6c64c440c30" height="480">
+<img src="https://github.com/user-attachments/assets/c6e89c40-8455-46d6-ae21-a6c64c440c30" width="480">
 </p>
 
 ## Project Structure
