@@ -12,24 +12,23 @@ Below is the directory structure of the project:
 ```
 bookstore/
 ├── app/
-│   ├── __init__.py
-│   ├── views.py
-│   ├── business_logic.py 
-│   ├── data_access.py
+│   ┠── __init__.py
+│   ┠── views.py
+│   ┠── business_logic.py 
+│   ┖── data_access.py
+|
 ├── instance/
-│   ├── bookstore.db
+│   ┖── bookstore.db
+|
 ├── templates/
-│   ├── index.html
-│   ├── search_results.html
-│   ├── order.html
-│   ├── enter_collection.html
+│   ┖─ html files
+|
 ├── static/
-│   ├── styles/
-│   |   ├── index.css
-│   |   ├── search.css
-│   ├── scripts/
-│   |   ├── index.js
-│   ├── images/
+│   ┠── styles/
+│   ┃   ┖── css files
+│   ┠── scripts/
+│   ┃   ┖── javascript files
+│   ┖── images/
 ├── config.py
 ├── run.py
 └── requirements.txt
@@ -46,17 +45,11 @@ bookstore/
   - **`bookstore.db`**: The SQLite database file for storing book information.
 
 - **templates/**: This folder contains HTML templates used to render the web pages. Each HTML file corresponds to a different page of the web application.
-  - **`index.html`**: The homepage of the bookstore.
-  - **`search_results.html`**: Displays the results of a book search.
-  - **`order.html`**: Manages the book ordering process.
-  - **`enter_collection.html`**: Register new books to the database.
 
 - **static/**: Contains static files like CSS, JavaScript, and images.
   - **styles/**: This directory contains stylesheets for the web application's design and layout.
-    - **`index.css`**: Stylesheet for the homepage.
-    - **`search.css`**: Stylesheet for the search results page.
   - **scripts/**: This directory contains JavaScript files for client-side functionality.
-    - **`index.js`**: Script for the homepage's dynamic features.
+
   - **images/**: Directory for storing image assets.
 
 - **config.py**: Holds configuration settings for the application, such as database URIs and secret keys.

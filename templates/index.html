@@ -5,43 +5,43 @@
     <title>Bookstore</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
 </head>
-<body>
-    <header>
-        <h1>Flask_BookStore.com</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Item1</a></li>
-                <li><a href="#">Item2</a></li>
-                <li><a href="#">Item3</a></li>
-                <li><a href="#">Item4</a></li>
-            </ul>
-        </nav>
-        <form action="{{ url_for('search') }}" method="post">
-            <input type="text" name="title" placeholder="Search for a book">
-            <button type="submit">Search</button>
-        </form>
-    </header>
-    <section class="new-releases">
-        <h2>Books saved in Database</h2>
-        <div class="book-container">
-            <!-- Books will be dynamically inserted here -->
-            {% for book in books %}
-            <div class="book">
-                <img src="{{ url_for('static', filename='images/' + book.image) }}">
-                <div class="details">
-                    <h3>{{ book.title }}</h3>
-                    <p>{{ book.author }}</p>
-                    <p>${{ book.price }}</p>
-                    <a href="#">Book Link</a>
+    <body>
+        <header>
+            <h1>Flask_BookStore.com</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Item1</a></li>
+                    <li><a href="#">Item2</a></li>
+                    <li><a href="#">Item3</a></li>
+                    <li><a href="#">Item4</a></li>
+                </ul>
+            </nav>
+            <form action="{{ url_for('search') }}" method="post">
+                <input type="text" name="title" placeholder="Search for a book">
+                <button type="submit">Search</button>
+            </form>
+        </header>
+        <section class="new-releases">
+            <h2>Books saved in Database</h2>
+            <div class="book-container">
+                <!-- Books will be dynamically inserted here -->
+                {% for book in books %}
+                <div class="book">
+                    <img src="{{ url_for('static', filename='images/' + book.image) }}">
+                    <div class="details">
+                        <h3>{{ book.title }}</h3>
+                        <p>{{ book.author }}</p>
+                        <p>${{ book.price }}</p>
+                        <a href="#">Book Link</a>
+                    </div>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
-        </div>
-    </section>
-    <footer>
-        <p>Message at the end in footer</p>
-        <div id="clock" class="clock"></div>
-    </footer>
-    <script src="{{ url_for('static', filename='scripts/index.js') }}"></script>
-</body>
+        </section>
+        <footer>
+            <p>Message at the end in footer</p>
+            <div id="clock" class="clock"></div>
+        </footer>
+        <script src="{{ url_for('static', filename='scripts/index.js') }}"></script>
+    </body>
 </html>

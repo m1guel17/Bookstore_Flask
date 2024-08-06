@@ -54,3 +54,9 @@ def init_app(app):
             else:
                 return "Not enough stock", 400
         return render_template('order.html', book_id=book_id)
+
+    @app.route('/books_database')
+    def books_database():
+        books = get_books()
+        return render_template('books_database.html', books=books);
+    

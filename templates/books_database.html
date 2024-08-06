@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensajes Log</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/books_database.css') }}">
+<body>
+    <h1>Book Register</h1>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Image</th>
+            <th>Price</th>
+            <th>Stock</th>
+        </tr>
+        {%for book in books %}
+            <tr>
+                <td>{{book.id}}</td>
+                <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.image}}</td>
+                <td>{{book.price}}</td>
+                <td>{{book.stock}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
