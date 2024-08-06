@@ -16,13 +16,10 @@ bookstore/
 │   ┠── views.py
 │   ┠── business_logic.py 
 │   ┖── data_access.py
-|
 ├── instance/
 │   ┖── bookstore.db
-|
 ├── templates/
 │   ┖─ html files
-|
 ├── static/
 │   ┠── styles/
 │   ┃   ┖── css files
