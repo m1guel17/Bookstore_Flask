@@ -1,3 +1,5 @@
 __pycache__/*
+flask_session/*
 instance/*
 app/__pycache__/*
+static/images/*

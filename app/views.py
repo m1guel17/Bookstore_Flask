@@ -1,7 +1,7 @@
-from flask import render_template, request, redirect, url_for, flash
+from flask import render_template, request, redirect, url_for, flash, session
 from werkzeug.utils import secure_filename
 import os
-from .business_logic import get_books, search_books, place_order, add_book
+from .business_logic import get_books, search_books, place_order, add_book, register_user, verify_login
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
@@ -55,8 +55,42 @@ def init_app(app):
                 return "Not enough stock", 400
         return render_template('order.html', book_id=book_id)
 
+    @app.route('/login', methods=['GET', 'POST'])
+    def login():
+        if request.method == 'POST':
+            username = request.form['username']
+            password = request.form['password']
+            if verify_login(username, password):
+                session['user'] = username
+                flash('Login successful!')
+                return redirect(url_for('books_database'))
+            else:
+                flash('Invalid username or password.')
+        return render_template('login.html')
+
+    @app.route('/register', methods=['GET', 'POST'])
+    def register():
+        if request.method == 'POST':
+            username = request.form['username']
+            password = request.form['password']
+            if register_user(username, password):
+                flash('Registration successful! Please log in.')
+                return redirect(url_for('login'))
+            else:
+                flash('Error: Username already exists or registration failed.')
+        return render_template('register.html')
+    
+    @app.route('/logout')
+    def logout():
+        session.pop('user', None)
+        flash('You have been logged out.')
+        return redirect(url_for('index'))
+
     @app.route('/books_database')
     def books_database():
+        if 'user' not in session:
+            flash('You need to be logged in to access this page.')
+            return redirect(url_for('login'))
         books = get_books()
         return render_template('books_database.html', books=books);
     
